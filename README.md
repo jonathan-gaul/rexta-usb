@@ -7,27 +7,18 @@ A Tang Nano 1K (Gowin GW1NZ-LV1) acts as a dedicated USB HID host, enumerating k
 ## Architecture
 
 ```mermaid
-block-beta
-    columns 3
-
-    kbd["USB Keyboard"]
-    space
+flowchart TD
+    kbd["USB Keyboard"]    
     mse["USB Mouse"]
 
-    kbd-- "USB low-speed" -->nano
-    mse-- "USB low-speed" -->nano
+    kbd-- USB low-speed -->nano
+    mse-- USB low-speed -->nano
 
-    block:nano:3
-        columns 1
-        nano["Tang Nano 1K\nGW1NZ-LV1 @ 12 MHz\n\nusb_hid_host × 2\nSPI slave\nIRQ logic"]
-    end
-
-    nano-- "SPI + IRQ" -->cpu
-
-    block:cpu:3
-        columns 1
-        cpu["SoC"]
-    end
+    nano["Tang Nano 1K\nGW1NZ-LV1 @ 12 MHz\n\nusb_hid_host × 2\nSPI slave\nIRQ logic"]
+    
+    nano-- SPI + IRQ -->cpu
+    
+    cpu["SoC"]    
 ```
 
 The Tang Nano 1K runs two instances of the [nand2mario usb_hid_host](https://github.com/nand2mario/usb_hid_host) core — one per USB port. Either port accepts a keyboard or mouse; device type is detected automatically at runtime via the core's `typ` output. No fixed port roles.
