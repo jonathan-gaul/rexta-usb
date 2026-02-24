@@ -1,6 +1,6 @@
 # Rexta USB
 
-USB HID host controller for the [rexta](https://github.com/your-org/rexta) retro computer project.
+USB HID host controller for the rexta computer project.
 
 A Tang Nano 1K (Gowin GW1NZ-LV1) acts as a dedicated USB HID host, enumerating keyboards and mice and forwarding input events to the SoC over SPI.
 
