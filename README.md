@@ -14,7 +14,7 @@ flowchart TD
     kbd-- USB low-speed -->nano
     mse-- USB low-speed -->nano
 
-    nano["Tang Nano 1K\nGW1NZ-LV1 @ 12 MHz\n\nusb_hid_host × 2\nSPI slave\nIRQ logic"]
+    nano["Tang Nano 1K<br />usb_hid_host × 2"]
     
     nano-- SPI + IRQ -->cpu
     
